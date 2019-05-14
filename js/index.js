@@ -15,21 +15,32 @@ const navLink2 = nav.querySelector(".nav-link:nth-of-type(3)");
 // const navLink2 = nav.querySelector(".nav-link:nth-of-type(4)");
 
 
+window.addEventListener('resize', event => {
+    if(window.innerWidth < "550"){
+        window.innerWidth = 700;
+    }
+});
+
 containerHome.addEventListener("mouseover", event => {
-    event.target.style.background = 'yellow';
+    event.target.style.background = 'pink';
+});
+
+containerHome.addEventListener("mouseleave", event => {
+    event.target.style.background = '';
+});
+
+
+logoHeading.addEventListener("mouseover", event => {
+    event.stopPropagation;
 });
 
 destination.addEventListener('keydown', logKey);
 
 function logKey(e) {
     destination.innerHTML += ` <h4>${e.code}</h4>`;
-  }
+}
 
 
-
-containerHome.addEventListener("mouseleave", event => {
-    event.target.style.background = '';
-});
 
 nav.addEventListener("click", event => {
     alert(`You clicked ${event.target}`);
@@ -57,7 +68,7 @@ navLink1.addEventListener("mousedown", event =>  {
 
 navLink2.addEventListener("mouseover", event =>  {
     // highlight the mouseenter target
-    event.target.style.color = "green";
+    event.target.style.color = "goldenrod";
    
     // reset the color after a short delay
     setTimeout(function() {
