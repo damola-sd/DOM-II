@@ -13,11 +13,16 @@ const navLink = nav.querySelector(".nav-link");
 const navLink1 = nav.querySelector(".nav-link:nth-of-type(2)");
 const navLink2 = nav.querySelector(".nav-link:nth-of-type(3)");
 // const navLink2 = nav.querySelector(".nav-link:nth-of-type(4)");
-
+contentSection.querySelector(".text-content p").addEventListener("cut", event => {
+    let selection = document.getSelection();
+    event.clipboardData.setData('text/plain', selection.toString().toUpperCase());
+    selection.deleteFromDocument();
+    event.preventDefault();
+});
 
 window.addEventListener('resize', event => {
     if(window.innerWidth < "550"){
-        window.innerWidth = 700;
+        window.innerWidth = 700;""
     }
 });
 
@@ -37,7 +42,7 @@ logoHeading.addEventListener("mouseover", event => {
 destination.addEventListener('keydown', logKey);
 
 function logKey(e) {
-    destination.innerHTML += ` <h4>${e.code}</h4>`;
+    destination.innerHTML += ` <h4> ${e.code} </h4>`;
 }
 
 
@@ -85,7 +90,4 @@ contentSection.addEventListener("select", (event) => {
   alert(`You selected: ${selection}`);
 });
 
-navLink.addEventListener('click', e => {
-    e.preventDefault;
-});
 
